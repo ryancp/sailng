@@ -1,0 +1,21 @@
+{
+  "name": "Sailng",
+  "version": "0.1.0",
+  "devDependencies": {
+    "angular": "~1.2.10",
+    "angular-mocks": "~1.2.10",
+    "bootstrap": "~3.0.3",
+    "angular-bootstrap": "~0.10.0",
+    "angular-ui-router": "~0.0.1",
+    "angular-ui-utils": "~0.0.4",
+    "socket.io-client": "0.9.16",
+    "angular-sails": "0.1.1",
+    "lodash": "~2.4.1",
+    "angular-moment": "~0.5.2",
+    "angular-translate": "~1.1.1",
+    "angular-translate-loader-static-files": "~0.1.6"
+  },
+  "dependencies": {
+    
+  }
+}
