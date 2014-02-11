@@ -26,16 +26,30 @@ module.exports.routes = {
   // default view engine) your home page.
   // 
   // (Alternatively, remove this and add an `index.html` file in your `assets` directory)
-  '/': {
-    view: 'homepage'
+  'get /': {
+    controller: 'HomeController',
+    action: 'index'
   },
 
 
   // Custom routes here...
 
+  /**
+     * Message routes
+     *
+     */
+    'get /api/message': 'MessageController.getAll',
+    'get /api/message/:id': 'MessageController.getOne',
+    'post /api/message': 'MessageController.create',
+    'delete /api/message': 'MessageController.destroy',
+
 
   // If a request to a URL doesn't match any of the custom routes above, it is matched 
   // against Sails route blueprints.  See `config/blueprints.js` for configuration options
   // and examples.
+
+  'get /home': 'HomeController.index',
+  'get /about': 'HomeController.index',
+  'get /messages': 'HomeController.index',
 
 };

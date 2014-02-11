@@ -16,7 +16,8 @@
 
 module.exports = function(grunt) {
 
-
+  // 
+  var jsAppSrcFiles =  'linker/src/**/*.js';
 
   /**
    * CSS files to inject in order
@@ -45,33 +46,22 @@ module.exports = function(grunt) {
 
     // Below, as a demonstration, you'll see the built-in dependencies
     // linked in the proper order order
-
-    // Bring in the socket.io client
-    // 'vendor/socket.io-client/dist/socket.io.js',
-
-    // then beef it up with some convenience logic for talking to Sails.js
-    // 'vendor/sails.io/sails.io.js',
-
-    // A simpler boilerplate library for getting you up and running w/ an
-    // automatic listener for incoming messages from Socket.io.
-    // 'linker/js/app.js',
-
     // *->    put other dependencies here   <-*
-    'vendor/angular/angular.js',
-    'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
-    'vendor/angular-ui-router/release/angular-ui-router.js',
-    'vendor/angular-ui-utils/modules/route/route.js',
-    'vendor/socket.io-client/dist/socket.io.min.js',
-    'vendor/sails.io/sails.io.js',
-    'vendor/angular-sails/angular-sails.js',
-    'vendor/lodash/dist/lodash.js',
-    'vendor/moment/moment.js',
-    'vendor/angular-moment/angular-moment.js',
-    'vendor/angular-translate/angular-translate.js',
-    'vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
+    'bower_components/angular/angular.js',
+    'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+    'bower_components/angular-ui-router/release/angular-ui-router.js',
+    'bower_components/angular-ui-utils/modules/route/route.js',
+    'bower_components/socket.io-client/dist/socket.io.min.js',
+    'bower_components/sails.io/sails.io.js',
+    'bower_components/angular-sails/angular-sails.js',
+    'bower_components/lodash/dist/lodash.js',
+    'bower_components/moment/moment.js',
+    'bower_components/angular-moment/angular-moment.js',
+    'bower_components/angular-translate/angular-translate.js',
+    'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
 
     // All of the rest of your app scripts imported here
-    'src/**/*.js'
+    jsAppSrcFiles
   ];
 
 
@@ -86,7 +76,7 @@ module.exports = function(grunt) {
    */
 
   var templateFilesToInject = [
-    'src/**/*.tpl.html'
+    'linker/**/*.tpl.html'
   ];
 
 
@@ -147,6 +137,8 @@ module.exports = function(grunt) {
   grunt.loadTasks(path.join(depsPath, '/grunt-contrib-less/tasks'));
   grunt.loadTasks(path.join(depsPath, '/grunt-contrib-coffee/tasks'));
   grunt.loadTasks(path.join(depsPath, '/grunt-sync/tasks'));
+  grunt.loadTasks(path.join(depsPath, '/grunt-html2js/tasks'));
+  grunt.loadTasks(path.join(depsPath, '/grunt-contrib-jshint/tasks'));
 
 
   // Project configuration.
@@ -184,24 +176,54 @@ module.exports = function(grunt) {
 
     clean: {
       dev: ['.tmp/public/**'],
-      build: ['www'],
-      prod: ['.tmp/public/concat', '.tmp/public/linker']
+      build: ['www']
     },
 
-    jst: {
+    /**
+     * HTML2JS is a Grunt plugin that takes all of your template files and
+     * places them into JavaScript files as strings that are added to
+     * AngularJS's template cache. This means that the templates too become
+     * part of the initial payload as one JavaScript file. Neat!
+     */
+    html2js: {
       dev: {
-
-        // To use other sorts of templates, specify the regexp below:
-        // options: {
-        //   templateSettings: {
-        //     interpolate: /\{\{(.+?)\}\}/g
-        //   }
-        // },
-
+        options: {
+          base: 'assets/linker/src/app'
+        },
         files: {
-          '.tmp/public/jst.js': templateFilesToInject
+          '.tmp/public/templates-dev.js': templateFilesToInject
         }
       }
+    },
+
+    /**
+     * `jshint` defines the rules of our linter as well as which files we
+     * should check. This file, all javascript sources, and all our unit tests
+     * are linted based on the policies listed in `options`. But we can also
+     * specify exclusionary patterns by prefixing them with an exclamation
+     * point (!); this is useful when code comes from a third party but is
+     * nonetheless inside `src/`.
+     */
+    jshint: {
+      src: [ 
+        '<%= app_files.js %>'
+      ],
+      test: [
+        '<%= app_files.jsunit %>'
+      ],
+      gruntfile: [
+        'Gruntfile.js'
+      ],
+      options: {
+        curly: true,
+        immed: true,
+        newcap: true,
+        noarg: true,
+        sub: true,
+        boss: true,
+        eqnull: true
+      },
+      globals: {}
     },
 
     less: {
@@ -349,9 +371,9 @@ module.exports = function(grunt) {
           appRoot: '.tmp/public'
         },
         files: {
-          '.tmp/public/index.html': ['.tmp/public/jst.js'],
-          'views/**/*.html': ['.tmp/public/jst.js'],
-          'views/**/*.ejs': ['.tmp/public/jst.js']
+          '.tmp/public/index.html': ['.tmp/public/templates-dev.js'],
+          'views/**/*.html': ['.tmp/public/templates-dev.js'],
+          'views/**/*.ejs': ['.tmp/public/templates-dev.js']
         }
       }
     },
@@ -382,14 +404,14 @@ module.exports = function(grunt) {
 
   grunt.registerTask('compileAssets', [
     'clean:dev',
-    'jst:dev',
+    'html2js:dev',
     'less:dev',
     'copy:dev',
     'coffee:dev'
   ]);
 
   grunt.registerTask('syncAssets', [
-    'jst:dev',
+    'html2js:dev',
     'less:dev',
     'sync:dev',
     'coffee:dev'
@@ -416,7 +438,7 @@ module.exports = function(grunt) {
   // When sails is lifted in production
   grunt.registerTask('prod', [
     'clean:dev',
-    'jst:dev',
+    'html2js:dev',
     'less:dev',
     'copy:dev',
     'coffee:dev',
@@ -425,8 +447,7 @@ module.exports = function(grunt) {
     'cssmin',
     'sails-linker:prodJs',
     'sails-linker:prodStyles',
-    'sails-linker:devTpl',
-    'clean:prod'
+    'sails-linker:devTpl'
   ]);
 
 };

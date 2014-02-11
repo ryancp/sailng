@@ -1,1 +1,0 @@
-var test = 'testing auto add of js files. this is the main app.js file';

@@ -2,7 +2,7 @@
   "name": "Sailng",
   "private": true,
   "version": "0.1.0",
-  "description": "a Sails application",
+  "description": "a Sails + Angular boilerplate application",
   "keywords": [],
   "dependencies": {
     "sails": "git://github.com/balderdashy/sails.git#v0.10",
@@ -20,17 +20,8 @@
     "grunt-contrib-cssmin": "~0.6.1",
     "grunt-contrib-less": "~0.9.0",
     "grunt-contrib-coffee": "~0.7.0",
-
-    "gulp": "3.5.2",
-    "gulp-clean": "~0.2.4",
-    "gulp-concat": "~2.1.7",
-    "gulp-watch": "~0.5.0",
-    "gulp-uglify": "~0.2.0",
-    "gulp-minify-css": "~0.3.0",
-    "gulp-less": "~1.2.1",
-    "gulp-recess": "~0.2.0",
-    "gulp-ngmin": "~0.1.2",
-    "gulp-angular-templatecache": "~1.0.3"
+    "grunt-html2js": "~0.1.9",
+    "grunt-contrib-jshint": "~0.7.1"
   },
   "scripts": {
     "start": "node app.js",
@@ -39,7 +30,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ryan/master.git"
+    "url": "git://github.com/ryan/0.1.git"
   },
   "author": "ryan",
   "license": ""

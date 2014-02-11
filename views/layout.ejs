@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="sailng" ng-controller="AppCtrl">
   <head>
-    <title>New Sails App</title>
+    <title>Sailng - Sails.js and Angular starter app / boilerplate</title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
     <!--  
         Stylesheets and Preprocessors
         ==============================
@@ -28,41 +27,16 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
+    <!-- font awesome from BootstrapCDN -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
     <!--STYLES-->
-    
+    <link rel="stylesheet" href="/linker/styles/main.css">
     <!--STYLES END-->
   </head>
 
   <body>
     <%- body %>
-
-
-
-    <!--
-        Client-side Templates
-        ========================
-
-        HTML templates are important prerequisites of modern, rich client applications.
-        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
-        that you load these templates client-side.
-
-        By default, your Gruntfile is configured to automatically load and precompile
-        client-side JST templates in your `assets/linker/templates` folder, then
-        include them here automatically (between TEMPLATES and TEMPLATES END).
-        
-        To customize this behavior to fit your needs, just edit your Gruntfile.
-        For example, here are a few things you could do:
-
-            + Import templates from other directories
-            + Use a different template engine (handlebars, jade, dust, etc.)
-            + Internationalize your client-side templates using a server-side
-              stringfile before they're served.
-    -->
-
-    <!--TEMPLATES-->
-    
-    <!--TEMPLATES END-->
-
 
     <!--
 
@@ -88,20 +62,47 @@
     -->
 
     <!--SCRIPTS-->
-    <script src="/vendor/angular/angular.js"></script>
-    <script src="/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="/vendor/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="/vendor/angular-ui-utils/modules/route/route.js"></script>
-    <script src="/vendor/socket.io-client/dist/socket.io.min.js"></script>
-    <script src="/vendor/sails.io/sails.io.js"></script>
-    <script src="/vendor/angular-sails/angular-sails.js"></script>
-    <script src="/vendor/lodash/dist/lodash.js"></script>
-    <script src="/vendor/moment/moment.js"></script>
-    <script src="/vendor/angular-moment/angular-moment.js"></script>
-    <script src="/vendor/angular-translate/angular-translate.js"></script>
-    <script src="/vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-    <script src="/src/app/app.js"></script>
-    <script src="/src/app/home/index.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/angular-ui-utils/modules/route/route.js"></script>
+    <script src="/bower_components/socket.io-client/dist/socket.io.min.js"></script>
+    <script src="/bower_components/sails.io/sails.io.js"></script>
+    <script src="/bower_components/angular-sails/angular-sails.js"></script>
+    <script src="/bower_components/lodash/dist/lodash.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/angular-moment/angular-moment.js"></script>
+    <script src="/bower_components/angular-translate/angular-translate.js"></script>
+    <script src="/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="/linker/src/app/about/index.js"></script>
+    <script src="/linker/src/app/app.js"></script>
+    <script src="/linker/src/app/home/index.js"></script>
+    <script src="/linker/src/app/messages/index.js"></script>
     <!--SCRIPTS END-->
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/linker/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+        
+        To customize this behavior to fit your needs, just edit your Gruntfile.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    <script type="text/javascript" src="/templates-dev.js"></script>
+    <!--TEMPLATES END-->
   </body>
 </html>
