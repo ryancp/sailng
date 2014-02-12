@@ -9,6 +9,7 @@
     "angular-ui-router": "~0.2.8",
     "angular-ui-utils": "~0.0.4",
     "socket.io-client": "0.9.16",
+    "bower-sails.io": "0.0.1",
     "angular-sails": "0.1.1",
     "lodash": "~2.4.1",
     "angular-moment": "~0.5.2",
