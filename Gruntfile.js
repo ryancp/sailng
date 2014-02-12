@@ -52,7 +52,7 @@ module.exports = function(grunt) {
     'bower_components/angular-ui-router/release/angular-ui-router.js',
     'bower_components/angular-ui-utils/modules/route/route.js',
     'bower_components/socket.io-client/dist/socket.io.min.js',
-    'bower_components/sails.io/sails.io.js',
+    'bower_components/bower-sails.io/sails.io.js',
     'bower_components/angular-sails/angular-sails.js',
     'bower_components/lodash/dist/lodash.js',
     'bower_components/moment/moment.js',
