@@ -16,6 +16,10 @@ You will need to have Sails v0.10 installed on your machine and then clone the r
 As of Feb, 14, 2014, you will need to manually download a copy of angular-ui-router.js and save it to assets/bower_components/angular-ui-router/release.
 This is a [known issue](https://github.com/angular-ui/ui-router/issues/846) with angular-ui-router which hopefully will be resolved soon.
 
+    $ <path_to_your_sails_0.10_bin/sails.js> lift
+
+Check it out at [http://localhost:1337](http://localhost:1337)
+
 ## Screenshots ##
 
 ![Messages](https://github.com/ryancp/sailng/raw/master/screenshots/sailng-messages.png)
