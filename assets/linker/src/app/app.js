@@ -2,6 +2,9 @@ angular.module( 'sailng', [
 	'ui.router',
 	'ngSails',
 	'angularMoment',
+	'lodash',
+	'services',
+	'models',
 	'templates-dev',
 
 	'sailng.home',
@@ -17,6 +20,5 @@ angular.module( 'sailng', [
 .run( function run () {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
-	console.log('app ctrl');
+.controller( 'AppCtrl', function AppCtrl ( $scope ) {
 });

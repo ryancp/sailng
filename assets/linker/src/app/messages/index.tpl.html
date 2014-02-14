@@ -5,16 +5,16 @@
 	<div class="col-md-6">
 		<form role="form" ng-submit="createMessage(newMessage)">
 			<div class="form-group">
-			<label for="messageTitle">Message</label>
+			<label for="messageTitle">Your Message</label>
 				<input type="text" ng-model="newMessage.title" class="form-control" id="messageTitle">
 			</div>
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
 	<div class="col-md-6">
-		<h3>Messages</h3>
+		<h3>All Messages</h3>
 		<ul>
-			<li ng-repeat="message in messages">{{message.title}}</li>
+			<li ng-repeat="message in messages">{{message.title}} - <button type="button" class="btn btn-danger btn-xs" ng-click="destroyMessage(message)"><i class="fa fa-trash-o"></i></button></li>
 		</ul>
 	</div>
 </div>

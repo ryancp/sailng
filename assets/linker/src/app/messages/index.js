@@ -14,13 +14,8 @@ angular.module( 'sailng.messages', [
 	});
 })
 
-.controller( 'MessagesCtrl', function MessagesController( $scope, $sails ) {
-	var config = {
-		apiUrl: '/api'
-	};
-
+.controller( 'MessagesCtrl', function MessagesController( $scope, $sails, lodash, utils, config, MessageModel ) {
 	$scope.newMessage = {};
-
 	$scope.messages = [];
 
 	$sails.on('message', function (envelope) {
@@ -35,19 +30,19 @@ angular.module( 'sailng.messages', [
 	});
 
 	$scope.destroyMessage = function(message) {
-		$sails.delete(config.apiUrl + '/message/' + message.id, function (data) {
-			console.log(data);
+		MessageModel.delete(message).then(function(model) {
+			// message has been deleted, and removed from $scope.messages
 		});
 	};
 
-	$scope.createMessage = function(message) {
-		$sails.post(config.apiUrl + '/message', message, function (data) {
+	$scope.createMessage = function(newMessage) {
+		MessageModel.create(newMessage).then(function(model) {
 			$scope.newMessage = {};
-			console.log(data);
+			console.log(model);
 		});
 	};
 
-	$sails.get(config.apiUrl + '/message', function(models) {
+	MessageModel.getAll($scope).then(function(models) {
 		$scope.messages = models;
 	});
 });
