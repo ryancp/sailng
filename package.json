@@ -5,8 +5,8 @@
   "description": "a Sails + Angular boilerplate application",
   "keywords": [],
   "dependencies": {
-    "sails": "git://github.com/balderdashy/sails.git#v0.10",
-    "sails-disk": "git://github.com/balderdashy/sails-disk.git#v0.10",
+    "sails": "~0.10.0-rc2",
+    "sails-disk": "~0.10.0",
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
     "grunt-sync": "~0.0.4",

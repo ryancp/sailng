@@ -8,7 +8,9 @@ angular.module( 'services.config', ['lodash'])
 		siteName: 'Sailng',
 		// no trailing slash!
 		siteUrl: '/',
-		apiUrl: '/api'
+		apiUrl: '/api',
+
+		currentUser: false
 	};
 
 });

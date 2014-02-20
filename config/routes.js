@@ -34,6 +34,13 @@ module.exports.routes = {
 
   // Custom routes here...
 
+    /**
+     * User routes
+     */
+    'get /api/user': 'UserController.getAll',
+    'get /api/user/:id': 'UserController.getOne',
+    'post /api/user': 'UserController.create',
+
   /**
      * Message routes
      *
@@ -51,5 +58,6 @@ module.exports.routes = {
   'get /home': 'HomeController.index',
   'get /about': 'HomeController.index',
   'get /messages': 'HomeController.index',
+  'get /register': 'HomeController.index',
 
 };

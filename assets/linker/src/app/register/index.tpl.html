@@ -1,0 +1,25 @@
+<h1>Register as a New User</h1>
+<p>Before posting a message, why don't you sign up as a new user? Just fill out the form below.</p>
+
+<div class="row">
+	<div class="col-md-6">
+		<form role="form" ng-submit="createUser(newUser)">
+			<div class="form-group">
+				<label for="username">Username</label>
+				<input type="text" ng-model="newUser.username" class="form-control" id="username">
+			</div>
+
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="text" ng-model="newUser.email" class="form-control" id="email">
+			</div>
+
+			<div class="form-group">
+				<label for="first_name">First Name</label>
+				<input type="text" ng-model="newUser.first_name" class="form-control" id="first_name">
+			</div>
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</div>

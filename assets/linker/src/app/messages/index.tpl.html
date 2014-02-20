@@ -1,20 +1,22 @@
 <h2>Messages</h2>
 <p>Open this page in two browsers and see how easy Sails.js makes realtime applications!</p>
 
+<p ng-show="!currentUser"><a href="/register">Register</a> to post a message!</p>
+
 <div class="row">
 	<div class="col-md-6">
 		<form role="form" ng-submit="createMessage(newMessage)">
 			<div class="form-group">
 			<label for="messageTitle">Your Message</label>
-				<input type="text" ng-model="newMessage.title" class="form-control" id="messageTitle">
+				<input type="text" ng-model="newMessage.title" class="form-control" id="messageTitle" ng-disabled="!currentUser">
 			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-primary" ng-disabled="!currentUser">Submit</button>
 		</form>
 	</div>
 	<div class="col-md-6">
 		<h3>All Messages</h3>
 		<ul>
-			<li ng-repeat="message in messages">{{message.title}} - <button type="button" class="btn btn-danger btn-xs" ng-click="destroyMessage(message)"><i class="fa fa-trash-o"></i></button></li>
+			<li ng-repeat="message in messages">{{message.title}} <b>by</b> {{message.user.username}} - <button type="button" class="btn btn-danger btn-xs" ng-click="destroyMessage(message)"><i class="fa fa-trash-o"></i></button></li>
 		</ul>
 	</div>
 </div>

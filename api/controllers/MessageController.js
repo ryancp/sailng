@@ -23,9 +23,11 @@ module.exports = {
 
 	create: function (req, res) {
 		var model = {
-			title: req.param('title')
+			title: req.param('title'),
+			user: req.param('user')
 		};
 
+		// TODO: upon message creation, how to populate the user here, so the associated user gets sent back as a property of the message
 		Message.create(model)
 		.done(function(err, model) {
 			if (err) {

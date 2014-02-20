@@ -14,9 +14,10 @@ angular.module( 'sailng.messages', [
 	});
 })
 
-.controller( 'MessagesCtrl', function MessagesController( $scope, $sails, lodash, utils, config, MessageModel ) {
+.controller( 'MessagesCtrl', function MessagesController( $scope, $sails, lodash, config, MessageModel ) {
 	$scope.newMessage = {};
 	$scope.messages = [];
+	$scope.currentUser = config.currentUser;
 
 	$sails.on('message', function (envelope) {
 		switch(envelope.verb) {
@@ -36,6 +37,7 @@ angular.module( 'sailng.messages', [
 	};
 
 	$scope.createMessage = function(newMessage) {
+		newMessage.user = config.currentUser.id;
 		MessageModel.create(newMessage).then(function(model) {
 			$scope.newMessage = {};
 			console.log(model);

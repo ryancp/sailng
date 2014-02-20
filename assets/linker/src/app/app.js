@@ -9,7 +9,8 @@ angular.module( 'sailng', [
 
 	'sailng.home',
 	'sailng.about',
-	'sailng.messages'
+	'sailng.messages',
+	'sailng.register'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider, $locationProvider ) {
