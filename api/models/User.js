@@ -31,7 +31,6 @@ module.exports = {
 	getAll: function() {
 		return User.find()
 		.then(function (models) {
-			console.log(models);
 			return [models];
 		});
 	},

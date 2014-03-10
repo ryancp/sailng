@@ -16,7 +16,7 @@
 	<div class="col-md-6">
 		<h3>All Messages</h3>
 		<ul>
-			<li ng-repeat="message in messages">{{message.title}} <b>by</b> {{message.user.username}} - <button type="button" class="btn btn-danger btn-xs" ng-click="destroyMessage(message)"><i class="fa fa-trash-o"></i></button></li>
+			<li ng-repeat="message in messages">{{message.title}} <b>by</b> {{message.user.username}}, <span am-time-ago="message.updatedAt"></span> - <button type="button" class="btn btn-danger btn-xs" ng-click="destroyMessage(message)"><i class="fa fa-trash-o"></i></button></li>
 		</ul>
 	</div>
 </div>

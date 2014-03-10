@@ -2,7 +2,7 @@ module.exports = {
 	getAll: function(req, res) {
 		Message.getAll()
 		.spread(function(models) {
-			Message.subscribe(req.socket);
+			Message.watch(req.socket, models);
 			res.json(models);
 		})
 		.fail(function(err) {
@@ -13,7 +13,7 @@ module.exports = {
 	getOne: function(req, res) {
 		Message.getOne(req.param('id'))
 		.spread(function(model) {
-			Message.subscribe(req.socket, model.toJSON());
+			Message.subscribe(req.socket, model);
 			res.json(model);
 		})
 		.fail(function(err) {
@@ -34,7 +34,7 @@ module.exports = {
 				return console.log(err);
 			}
 			else {
-				Message.publishCreate(model.toJSON());
+				Message.publishCreate(model);
 				res.json(model);
 			}
 		});

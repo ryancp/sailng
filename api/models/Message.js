@@ -20,7 +20,6 @@ module.exports = {
 		.sort('createdAt DESC')
 		.populate('user')
 		.then(function (models) {
-			console.log(models);
 			return [models];
 		});
 	},

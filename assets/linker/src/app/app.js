@@ -5,6 +5,7 @@ angular.module( 'sailng', [
 	'lodash',
 	'services',
 	'models',
+	'angularMoment',
 	'templates-dev',
 
 	'sailng.home',
@@ -19,6 +20,7 @@ angular.module( 'sailng', [
 })
 
 .run( function run () {
+	moment.lang('en');
 })
 
 .controller( 'AppCtrl', function AppCtrl ( $scope ) {

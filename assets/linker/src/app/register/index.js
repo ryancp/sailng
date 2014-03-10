@@ -14,15 +14,15 @@ angular.module( 'sailng.register', [
 	});
 })
 
-.controller( 'RegisterCtrl', function RegisterController( $scope, config, UserModel ) {
+.controller( 'RegisterCtrl', function RegisterController( $scope, $state, config, UserModel ) {
 	$scope.newUser = {};
 
 	$scope.createUser = function(newUser) {
 		UserModel.create(newUser).then(function(model) {
 			config.currentUser = model;
 			$scope.newUser = {};
-			console.log(model);
-			// TODO: client-side redirect to /messages
+			// client-side redirect to /messages
+			$state.go('messages');
 		});
 	};
 });
