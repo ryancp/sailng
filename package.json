@@ -1,7 +1,7 @@
 {
   "name": "Sailng",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.2.0",
   "description": "a Sails + Angular boilerplate application",
   "keywords": [],
   "dependencies": {
@@ -38,8 +38,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/vagrant/master.git"
+    "url": "git://github.com/ryancp/sailng.git"
   },
-  "author": "vagrant",
-  "license": ""
+  "author": "Ryan Pharis, @ryancp",
+  "license": "MIT"
 }
