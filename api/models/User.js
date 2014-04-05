@@ -1,3 +1,5 @@
+var bcrypt = require('bcrypt');
+
 module.exports = {
 	attributes: {
 		username: {
@@ -7,7 +9,8 @@ module.exports = {
 		},
 		email: {
 			type: 'email',
-			required: true
+			required: true,
+			unique: true
 		},
 		first_name: {
 			type: 'string',
@@ -20,12 +23,8 @@ module.exports = {
 		messages: {
 			collection: 'message',
 			via: 'user'
-		}
-	},
-
-	beforeCreate: function(model, cb) {
-		model.message_count = 0;
-		cb(null, model);
+		},
+		passports : { collection: 'Passport', via: 'user' }
 	},
 
 	getAll: function() {

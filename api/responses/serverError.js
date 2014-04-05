@@ -13,9 +13,10 @@
 
 module.exports = function serverError (errors) {
 
-  // Get access to `req` and `res`
+  // Get access to `req`, `res`, `sails`
   var req = this.req;
   var res = this.res;
+  var sails = req._sails;
 
   var viewFilePath = '500',
     statusCode = 500,

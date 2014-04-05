@@ -31,12 +31,14 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <!--STYLES-->
-    <link rel="stylesheet" href="/linker/styles/main.css">
+    <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
   </head>
 
   <body>
     <%- body %>
+
+
 
     <!--
 
@@ -63,28 +65,29 @@
 
     <!--SCRIPTS-->
     <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/bower_components/socket.io-client/dist/socket.io.min.js"></script>
-    <script src="/bower_components/bower-sails.io/sails.io.js"></script>
-    <script src="/bower_components/angular-sails/angular-sails.js"></script>
+    <script src="/bower_components/sails.io.js/dist/sails.io.js"></script>
+    <script src="/bower_components/angular-sails/dist/angular-sails.js"></script>
     <script src="/bower_components/lodash/dist/lodash.js"></script>
     <script src="/bower_components/moment/moment.js"></script>
     <script src="/bower_components/angular-moment/angular-moment.js"></script>
     <script src="/bower_components/angular-translate/angular-translate.js"></script>
     <script src="/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-    <script src="/linker/src/app/about/index.js"></script>
-    <script src="/linker/src/app/app.js"></script>
-    <script src="/linker/src/app/home/index.js"></script>
-    <script src="/linker/src/app/messages/index.js"></script>
-    <script src="/linker/src/app/register/index.js"></script>
-    <script src="/linker/src/common/models/Message.js"></script>
-    <script src="/linker/src/common/models/User.js"></script>
-    <script src="/linker/src/common/models/index.js"></script>
-    <script src="/linker/src/common/services/config.js"></script>
-    <script src="/linker/src/common/services/index.js"></script>
-    <script src="/linker/src/common/services/lodash.js"></script>
-    <script src="/linker/src/common/services/utils.js"></script>
+    <script src="/src/app/about/index.js"></script>
+    <script src="/src/app/app.js"></script>
+    <script src="/src/app/header/index.js"></script>
+    <script src="/src/app/home/index.js"></script>
+    <script src="/src/app/messages/index.js"></script>
+    <script src="/src/common/models/Message.js"></script>
+    <script src="/src/common/models/User.js"></script>
+    <script src="/src/common/models/index.js"></script>
+    <script src="/src/common/services/config.js"></script>
+    <script src="/src/common/services/index.js"></script>
+    <script src="/src/common/services/lodash.js"></script>
+    <script src="/src/common/services/title.js"></script>
+    <script src="/src/common/services/utils.js"></script>
     <!--SCRIPTS END-->
 
     <!--
@@ -109,7 +112,9 @@
     -->
 
     <!--TEMPLATES-->
-    <script type="text/javascript" src="/templates-dev.js"></script>
+    <script type="text/javascript" src="/templates.js"></script>
     <!--TEMPLATES END-->
+
+
   </body>
 </html>

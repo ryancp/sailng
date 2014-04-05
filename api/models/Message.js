@@ -9,15 +9,25 @@ module.exports = {
 		}
 	},
 
-	beforeCreate: function(model, cb) {
-		// TODO: on creation of a new message, increment the message's user.message_count by 1
-		cb(null, model);
+	/**
+	* Callback to be run after creating a Message.
+	*
+	* @param {Object}   message The soon-to-be-created Message
+	* @param {Function} next
+	*/
+	afterCreate: function (message, next) {
+		// set message.user = to appropriate user model
+		User.getOne(message.user)
+		.spread(function(user) {
+			message.user = user;
+			next(null, message);
+		});
 	},
 
 	getAll: function() {
 		return Message.find()
-		// TODO: sort by createdAt DESC does not work here
-		.sort('createdAt DESC')
+		// TODO: sort by createdAt DESC does not work here, something to do with a camelCase key names bug
+		.sort({id: 'desc'})
 		.populate('user')
 		.then(function (models) {
 			return [models];

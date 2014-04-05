@@ -6,6 +6,27 @@
  */
 module.exports.express = {
 
+	// Completely override Express middleware loading.  
+	// If you only want to override the bodyParser, cookieParser
+	// or methodOverride middleware, see the appropriate keys below.
+	// If you only want to override one or more of the default middleware,
+	// but keep the order the same, use the `middleware` key.
+	// See the `http` hook in the Sails core for the default loading order.
+	//
+	// loadMiddleware: function( app, defaultMiddleware, sails ) { ... }
+
+
+
+
+	// Override one or more of the default middleware (besides bodyParser, cookieParser)
+	// 
+	// middleware: {
+	//    session: false, // turn off session completely for HTTP requests
+	//    404: function ( req, res, next ) { ... your custom 404 middleware ... }
+	// }
+
+
+
 
 	// The middleware function used for parsing the HTTP request body.
 	// (this most commonly comes up in the context of file uploads)
@@ -19,7 +40,7 @@ module.exports.express = {
 	// 
 	// If you want to change any of that, you can override the bodyParser with
 	// your own custom middleware:
-	// bodyParser: function customBodyParser (options) { ... },
+	// bodyParser: function customBodyParser (options) { ... return function(req, res, next) {...}; }
 	// 
 	// Or you can always revert back to the vanilla parser built-in to Connect/Express:
 	// bodyParser: require('express').bodyParser,
@@ -36,7 +57,7 @@ module.exports.express = {
 	//
 	// The multipart component of this parser will be replaced
 	// in a subsequent version of Sails (after v0.10, probably v0.11) with:
-	// [file-parser](https://github.com/mikermcneil/file-parser)
+	// [file-parser](https://github.com/balderdashy/file-parser)
 	// (or something comparable)
 	// 
 	// If you understand the risks of using the multipart bodyParser,

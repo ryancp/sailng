@@ -14,7 +14,7 @@
  * key in any of your controller files, and assigning it an object, e.g.:
  * {
  *     // ...
- *     _config: { blueprints: { rest: false } }
+ *     _config: { rest: false }
  *     // ...
  * }
  *
@@ -71,7 +71,7 @@ module.exports.blueprints = {
    * you must take great care not to inadvertently expose unsafe/unintentional controller logic
    * to GET requests.
    */
-  actions: true,
+  actions: false,
 
 
   
@@ -93,7 +93,7 @@ module.exports.blueprints = {
    * `rest` blueprints are enabled by default, and are suitable for a production scenario,
    * as long you take standard security precautions (combine w/ policies, etc.)
    */
-  rest: true,
+  rest: false,
 
 
   /**
@@ -105,7 +105,7 @@ module.exports.blueprints = {
    *
    * `shortcuts` are enabled by default, but SHOULD BE DISABLED IN PRODUCTION!!!!!
    */
-  shortcuts: true,
+  shortcuts: false,
 
 
 

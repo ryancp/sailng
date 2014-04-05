@@ -31,6 +31,13 @@ module.exports.routes = {
     action: 'index'
   },
 
+  'get /login': 'AuthController.login',
+  'get /logout': 'AuthController.logout',
+  'get /register': 'AuthController.register',
+
+  'post /auth/local': 'AuthController.callback',
+  'post /auth/local/:action': 'AuthController.callback',
+
 
   // Custom routes here...
 
@@ -57,7 +64,6 @@ module.exports.routes = {
 
   'get /home': 'HomeController.index',
   'get /about': 'HomeController.index',
-  'get /messages': 'HomeController.index',
-  'get /register': 'HomeController.index',
+  'get /messages': 'HomeController.index'
 
 };

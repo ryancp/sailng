@@ -22,8 +22,7 @@
 var sails;
 try {
 	sails = require('sails');
-}
-catch (e) {
+} catch (e) {
 	console.error('To run an app using `node app.js`, you usually need to have a version of `sails` installed in the same directory as your app.');
 	console.error('To do that, run `npm install sails`');
 	console.error('');
@@ -33,5 +32,22 @@ catch (e) {
 	return;
 }
 
+// Try to get `rc` dependency
+var rc;
+try {
+	rc = require('rc');
+} catch (e0) {
+	try {
+		rc = require('sails/node_modules/rc');
+	} catch (e1) {
+		console.error('Could not find dependency: `rc`.');
+		console.error('Your `.sailsrc` file(s) will be ignored.');
+		console.error('To resolve this, run:');
+		console.error('npm install rc --save');
+		rc = function () { return {}; };
+	}
+}
+
+
 // Start server
-sails.lift();
+sails.lift(rc('sails'));

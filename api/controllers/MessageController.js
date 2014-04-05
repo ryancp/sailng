@@ -1,8 +1,12 @@
+var _ = require('lodash');
+
 module.exports = {
 	getAll: function(req, res) {
 		Message.getAll()
 		.spread(function(models) {
-			Message.watch(req.socket, models);
+			Message.watch(req);
+			Message.subscribe(req.socket, models);
+
 			res.json(models);
 		})
 		.fail(function(err) {
@@ -22,20 +26,20 @@ module.exports = {
 	},
 
 	create: function (req, res) {
+		var userId = req.param('user');
 		var model = {
 			title: req.param('title'),
-			user: req.param('user')
+			user: userId
 		};
 
-		// TODO: upon message creation, how to populate the user here, so the associated user gets sent back as a property of the message
 		Message.create(model)
-		.done(function(err, model) {
+		.done(function(err, message) {
 			if (err) {
 				return console.log(err);
 			}
 			else {
-				Message.publishCreate(model);
-				res.json(model);
+				Message.publishCreate(message);
+				res.json(message);
 			}
 		});
 	},
