@@ -10,7 +10,7 @@
 			<label for="messageTitle">Your Message</label>
 				<input type="text" ng-model="newMessage.title" class="form-control" id="messageTitle" ng-disabled="!currentUser">
 			</div>
-			<button type="submit" class="btn btn-primary" ng-disabled="!currentUser">Submit</button>
+			<button type="submit" class="btn btn-primary" ng-disabled="!currentUser || !newMessage.title">Submit</button>
 		</form>
 	</div>
 	<div class="col-md-6">
