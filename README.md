@@ -9,7 +9,7 @@ Current features include: a modular angular js architecture and file structure, 
 More features are planned like i18n, plus I might modify the Gruntfile to run jshint and karma test runner on file saves.
 
 ## To get up and running ##
-You will need to have Sails v0.10 installed on your machine (sudo npm install sails@beta -g) and then clone the repo,, cd into the project directory and run
+You will need to have Sails v0.10 installed on your machine (sudo npm install sails@beta -g) and then clone the repo, cd into the project directory and run
 
     $ npm install (if you are on Windows using Vagrant, be sure to: npm install --no-bin-links)
     $ cd assets
