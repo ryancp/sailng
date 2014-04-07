@@ -27,7 +27,7 @@ module.exports = {
 	getAll: function() {
 		return Message.find()
 		// TODO: sort by createdAt DESC does not work here, something to do with a camelCase key names bug
-		.sort({id: 'desc'})
+		.sort({createdAt: 'desc'})
 		.populate('user')
 		.then(function (models) {
 			return [models];
