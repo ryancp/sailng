@@ -92,7 +92,7 @@ passport.connect = function (req, query, profile, next) {
   , identifier : query.identifier
   })
   .populate('user')
-  .done(function (err, passport) {
+  .exec(function (err, passport) {
     if (err) return next(err);
 
     if (!req.user) {
@@ -100,12 +100,12 @@ passport.connect = function (req, query, profile, next) {
       //           authentication provider.
       // Action:   Create a new user and assign them a passport.
       if (!passport) {
-        User.create(user).done(function (err, user) {
+        User.create(user).exec(function (err, user) {
           if (err) return next(err);
 
           query.user = user.id;
 
-          Passport.create(query).done(function (err, passport) {
+          Passport.create(query).exec(function (err, passport) {
             // If a passport wasn't created, bail out
             if (err) return next(err);
 
@@ -126,7 +126,7 @@ passport.connect = function (req, query, profile, next) {
       if (!passport) {
         query.user = req.user.id;
 
-        Passport.create(query).done(function (err, passport) {
+        Passport.create(query).exec(function (err, passport) {
           // If a passport wasn't created, bail out
           if (err) return next(err);
 
@@ -285,7 +285,7 @@ passport.serializeUser(function (user, next) {
 });
 
 passport.deserializeUser(function (id, next) {
-  User.findOne(id).done(next);
+  User.findOne(id).exec(next);
 });
 
 module.exports = passport;

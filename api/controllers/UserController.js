@@ -27,7 +27,7 @@ module.exports = {
 		};
 
 		User.create(model)
-		.done(function(err, model) {
+		.exec(function(err, model) {
 			if (err) {
 				return console.log(err);
 			}

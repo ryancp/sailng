@@ -33,7 +33,7 @@ module.exports = {
 		};
 
 		Message.create(model)
-		.done(function(err, message) {
+		.exec(function(err, message) {
 			if (err) {
 				return console.log(err);
 			}
@@ -51,7 +51,7 @@ module.exports = {
 		}
 
 		// Otherwise, find and destroy the model in question
-		Message.findOne(id).done(function(err, model) {
+		Message.findOne(id).exec(function(err, model) {
 			if (err) {
 				return res.serverError(err);
 			}
