@@ -25,15 +25,11 @@ var jsFilesToInject = [
   'bower_components/angular/angular.js',
   'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
   'bower_components/angular-ui-router/release/angular-ui-router.js',
-  'bower_components/angular-ui-utils/modules/route/route.js',
-  'bower_components/socket.io-client/dist/socket.io.min.js',
   'bower_components/sails.io.js/dist/sails.io.js',
-  'bower_components/angular-sails/dist/angular-sails.js',
-  'bower_components/lodash/dist/lodash.js',
+  'bower_components/angularSails/dist/ngsails.io.js',
+  'bower_components/lodash/lodash.js',
   'bower_components/moment/moment.js',
   'bower_components/angular-moment/angular-moment.js',
-  'bower_components/angular-translate/angular-translate.js',
-  'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
 
   //
   // *->    you might put other dependencies like jQuery or Angular here   <-*

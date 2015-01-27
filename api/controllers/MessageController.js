@@ -5,7 +5,7 @@ module.exports = {
 		Message.getAll()
 		.spread(function(models) {
 			Message.watch(req);
-			Message.subscribe(req.socket, models);
+			Message.subscribe(req, models);
 
 			res.json(models);
 		})
@@ -17,7 +17,7 @@ module.exports = {
 	getOne: function(req, res) {
 		Message.getOne(req.param('id'))
 		.spread(function(model) {
-			Message.subscribe(req.socket, model);
+			Message.subscribe(req, model);
 			res.json(model);
 		})
 		.fail(function(err) {

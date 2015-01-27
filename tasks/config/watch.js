@@ -3,7 +3,9 @@
  *
  * ---------------------------------------------------------------
  *
- * Watch for changes on files in the `assets` folder,
+ * Watch for changes on
+ * - files in the `assets` folder
+ * - the `tasks/pipeline.js` file
  * and re-run the appropriate tasks.
  *
  * For usage docs see:

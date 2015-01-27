@@ -1,13 +1,13 @@
 {
-  "name": "Sailng",
+  "name": "1.0.0",
   "private": true,
-  "version": "0.2.0",
-  "description": "a Sails + Angular boilerplate application",
+  "version": "0.0.0",
+  "description": "a Sails + Angular example application",
   "keywords": [],
   "dependencies": {
-    "sails": "~0.10.0-rc7",
+    "sails": "~0.11.0-rc5",
     "sails-disk": "~0.10.0",
-    "rc": "~0.3.3",
+    "rc": "~0.5.0",
     "include-all": "~0.1.3",
     "ejs": "~0.8.4",
     "grunt": "0.4.2",
@@ -20,16 +20,15 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-contrib-uglify": "~0.4.0",
     "grunt-contrib-cssmin": "~0.9.0",
-    "grunt-contrib-less": "~0.10.0",
+    "grunt-contrib-less": "0.11.1",
     "grunt-contrib-coffee": "~0.10.1",
-    "grunt-html2js": "~0.2.6",
-    "grunt-contrib-jshint": "~0.10.0",
-    "lodash": "~2.4.1",
-    "passport": "~0.2.0",
+    "grunt-html2js": "~0.3.0",
+    "lodash": "~3.0.0",
+    "passport": "~0.2.1",
     "passport-local": "~1.0.0",
-    "bcrypt": "~0.7.8",
-    "validator": "~3.12.0",
-    "sails-generate-auth": "~0.1.4"
+    "bcryptjs": "~2.1.0",
+    "validator": "~3.28.0",
+    "sails-generate-auth": "~0.2.0"
   },
   "scripts": {
     "start": "node app.js",
@@ -38,8 +37,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ryancp/sailng.git"
+    "url": "git://github.com/anonymous node/sails user/1.0.0.git"
   },
-  "author": "Ryan Pharis, @ryancp",
-  "license": "MIT"
+  "author": "anonymous node/sails user",
+  "license": ""
 }

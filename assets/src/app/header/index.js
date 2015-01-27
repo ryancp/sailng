@@ -11,7 +11,7 @@ angular.module( 'sailng.header', [
 
     if (!$scope.currentUser) {
         navItems.push({title: 'Register', translationKey: 'navigation:register', url: '/register', cssClass: 'fa fa-briefcase'});
-        navItems.push({title: 'Login', translationKey: 'navigation:login', url: '/login', cssClass: 'fa fa-comments'});
+        navItems.push({title: 'Login', translationKey: 'navigation:login', url: '/login', cssClass: 'fa fa-sign-in'});
     }
 
     $scope.navItems = navItems;

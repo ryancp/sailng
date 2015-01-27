@@ -1,4 +1,21 @@
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
+
+/**
+ * Hash a passport password.
+ *
+ * @param {Object}   password
+ * @param {Function} next
+ */
+function hashPassword (passport, next) {
+  if (passport.password) {
+    bcrypt.hash(passport.password, 10, function (err, hash) {
+      passport.password = hash;
+      next(err, passport);
+    });
+  } else {
+    next(null, passport);
+  }
+}
 
 /**
  * Passport Model
@@ -15,16 +32,14 @@ var bcrypt = require('bcrypt');
  * the user, but not the authentication data, to and from the session.
  */
 var Passport = {
-
   attributes: {
-
     // Required field: Protocol
     //
     // Defines the protocol to use for the passport. When employing the local
     // strategy, the protocol will be set to 'local'. When using a third-party
     // strategy, the protocol will be set to the standard used by the third-
     // party service (e.g. 'oauth', 'oauth2', 'openid').
-    protocol: { type: 'string', required: true },
+    protocol: { type: 'alphanumeric', required: true },
 
     // Local field: Password
     //
@@ -43,7 +58,7 @@ var Passport = {
     // dards. When using OAuth 1.0, a `token` as well as a `tokenSecret` will
     // be issued by the provider. In the case of OAuth 2.0, an `accessToken`
     // and a `refreshToken` will be issued.
-    provider   : { type: 'string' },
+    provider   : { type: 'alphanumericdashed' },
     identifier : { type: 'string' },
     tokens     : { type: 'json' },
 
@@ -54,7 +69,7 @@ var Passport = {
     //
     // For more information on associations in Waterline, check out:
     // https://github.com/balderdashy/waterline
-    user: { model: 'User' },
+    user: { model: 'User', required: true },
 
     /**
      * Validate password used by the local strategy.
@@ -75,14 +90,7 @@ var Passport = {
    * @param {Function} next
    */
   beforeCreate: function (passport, next) {
-    if (passport.hasOwnProperty('password')) {
-      bcrypt.hash(passport.password, 10, function (err, hash) {
-        passport.password = hash;
-        next(err, passport);
-      });
-    } else {
-      next(null, passport);
-    }
+    hashPassword(passport, next);
   },
 
   /**
@@ -92,14 +100,7 @@ var Passport = {
    * @param {Function} next
    */
   beforeUpdate: function (passport, next) {
-    if (passport.hasOwnProperty('password')) {
-      bcrypt.hash(passport.password, 10, function (err, hash) {
-        passport.password = hash;
-        next(err, passport);
-      });
-    } else {
-      next(null, passport);
-    }
+    hashPassword(passport, next);
   }
 };
 

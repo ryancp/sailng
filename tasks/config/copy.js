@@ -15,14 +15,12 @@
  */
 module.exports = function(grunt) {
 
-	var filesToCopy = require('../pipeline').jsFilesToInjectNoPathChange;
-
 	grunt.config.set('copy', {
 		dev: {
 			files: [{
 				expand: true,
 				cwd: './assets',
-				src: filesToCopy,
+				src: ['**/*.!(coffee|less)'],
 				dest: '.tmp/public'
 			}]
 		},
